@@ -11,7 +11,7 @@ import static org.hamcrest.Matchers.*;
 import  static  org.apache.http.HttpStatus.*;
 import static org.junit.Assert.assertTrue;
 
-public class CourierCreating {
+public class CourierCreatingTest {
     private CourierClient courierClient;
     private int courierId;
 
