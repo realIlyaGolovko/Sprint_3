@@ -7,7 +7,7 @@ public class CourierClient extends ScooterRestClient {
     private static final String CREATE_COURIER ="api/v1/courier" ;
     private static final  String LOGIN_COURIER="api/v1/courier/login";
     private static final String DELETE_COURIER="/api/v1/courier/";
-    @Step("Авторизация курьера")
+    @Step("Авторизация курьера с {courierCredentials}")
     public ValidatableResponse login(CourierCredentials courierCredentials){
         return given().log().all()
                 .spec(getBaseSpec())
@@ -16,7 +16,7 @@ public class CourierClient extends ScooterRestClient {
                 .post(LOGIN_COURIER)
                 .then().log().all();
     }
-    @Step("Создание курьера")
+    @Step("Создание курьера с {courier}")
     public ValidatableResponse create(Courier courier){
         return given().log().all()
                 .spec(getBaseSpec())
