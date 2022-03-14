@@ -44,7 +44,7 @@ public class CourierLoginRequestValidationTest {
         };
     }
     @Test
-    @DisplayName("Проверка невозможности авторизации курьера c корректным логином/паролем")
+    @DisplayName("Проверка невозможности авторизации курьера c некорректным логином/паролем")
     @Description("Эндпоинт /api/v1/courier/login")
     public void courierCannotLoginWithIncorectParameters(){
         //Act

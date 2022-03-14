@@ -85,5 +85,4 @@ public class CourierCreatingTest {
         createResponse.assertThat().statusCode(SC_BAD_REQUEST);
         createResponse.assertThat().body("message",equalTo("Недостаточно данных для создания учетной записи"));
     }
-
 }
