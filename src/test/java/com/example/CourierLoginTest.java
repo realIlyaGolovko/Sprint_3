@@ -29,7 +29,7 @@ public class CourierLoginTest {
         //Arrange
         courierClient.create(courier);
         //Act
-        ValidatableResponse loginResponse = courierClient.login(new CourierCredentials(courier.getLogin(), courier.getPassword()));
+        ValidatableResponse loginResponse = courierClient.login(CourierCredentials.from(courier));
         courierId = loginResponse.extract().path("id");
         //Assert
         loginResponse.statusCode(SC_OK);
