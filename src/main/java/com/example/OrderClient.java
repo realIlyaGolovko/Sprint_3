@@ -6,7 +6,7 @@ import static io.restassured.RestAssured.given;
 public class OrderClient extends ScooterRestClient {
     private final String CREATE_ORDER_PATH ="/api/v1/orders";
     private final String GET_ORDER_PATH="/api/v1/orders/track";
-    private final String CANCEL_ORDER_PATH="/api/v1/orders/cancel";
+    private final String CANCEL_ORDER_PATH="/api/v1/orders/cancel/";
 
 @Step("Запрос на создание заказа с параметрами {order}")
     public ValidatableResponse create(Order order){
@@ -17,6 +17,16 @@ public class OrderClient extends ScooterRestClient {
                .post(CREATE_ORDER_PATH)
                .then().log().all();
     }
+
+@Step("Запрос на получение списка заказов ")
+    public ValidatableResponse getOrderList(){
+        return given().log().all()
+                .spec(getBaseSpec())
+                .when()
+                .get(CREATE_ORDER_PATH)
+                .then().log().all();
+    }
+
 @Step("Запрос на получение содержимого заказа по номеру {track}")
     public ValidatableResponse getOrder(int track){
     return given().log().all()
@@ -32,7 +42,7 @@ public class OrderClient extends ScooterRestClient {
                 .spec(getBaseSpec())
                 .body(track)
                 .when()
-                .put(CREATE_ORDER_PATH)
+                .put(CANCEL_ORDER_PATH)
                 .then().log().all();
     }
 

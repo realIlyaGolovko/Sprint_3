@@ -3,7 +3,6 @@ import com.github.javafaker.Faker;
 import io.qameta.allure.Step;
 import lombok.Builder;
 import lombok.Data;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -36,7 +35,7 @@ public class Order {
         this.color = color;
     }
     @Step("Создание нового заказа с рандомными данными за исключением цвета")
-    public static Order getRandomOrder(String firstColor, String secondColor){
+    public static Order getRandomOrder(List<String> colors){
         String firstName=faker.name().firstName();
         String lastName=faker.name().lastName();
         String address=faker.address().streetAddress();
@@ -45,9 +44,8 @@ public class Order {
         int rentTime=faker.number().numberBetween(0,7);
         Date deliveryDate=faker.date().future(7, TimeUnit.DAYS);
         String comment=faker.programmingLanguage().name();
-        List<String> color=new ArrayList<String>();
-        color.add(firstColor);
-        color.add(secondColor);
+        List<String> color=colors;
+
         return new Order(firstName,lastName,address,metroStation,phone,rentTime,deliveryDate,comment,color);
 
 

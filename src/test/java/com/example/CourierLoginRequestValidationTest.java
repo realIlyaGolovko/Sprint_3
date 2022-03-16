@@ -23,6 +23,10 @@ public class CourierLoginRequestValidationTest {
         this.courierCredentials=courierCredentials;
         this.expectedStatusCode=expectedStatusCode;
         this.expectedErrorMsg=expectedErrorMsg;}
+
+    @After
+    public void tearDown(){courierClient.delete(courierId);}
+
     //Arrange
     @Parameterized.Parameters
     public static Object[][] getCredentialsData(){
@@ -58,7 +62,6 @@ public class CourierLoginRequestValidationTest {
         assertEquals("Status code is incorrect",expectedStatusCode, actualStatusCode);
         assertEquals ("Error message is  incorrect", expectedErrorMsg, actualErrorMsg);
     }
-    @After
-    public void tearDown(){courierClient.delete(courierId);}
+
 }
 
