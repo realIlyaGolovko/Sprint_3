@@ -4,8 +4,6 @@ import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
 import org.junit.Test;
 import java.util.List;
-import java.util.Map;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import  static  org.apache.http.HttpStatus.*;
@@ -29,7 +27,6 @@ public class OrderGettingTest {
     getOrderResponse.assertThat().body("orders.track",is(not(nullValue())));
     assertThat(actualOrder.isEmpty(),is(false));
     assertEquals(actualOrder.size(),expectedListSize);
-
-
 }
+
 }

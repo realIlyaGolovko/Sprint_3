@@ -7,6 +7,7 @@ public class CourierClient extends ScooterRestClient {
     private static final String CREATE_COURIER_PATH ="api/v1/courier" ;
     private static final  String LOGIN_COURIER_PATH ="api/v1/courier/login";
     private static final String DELETE_COURIER_PATH ="/api/v1/courier/";
+
     @Step("Запрос для авторизации курьера с {courierCredentials}")
     public ValidatableResponse login(CourierCredentials courierCredentials){
         return given().log().all()

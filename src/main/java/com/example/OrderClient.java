@@ -6,7 +6,7 @@ import static io.restassured.RestAssured.given;
 public class OrderClient extends ScooterRestClient {
     private final String CREATE_ORDER_PATH ="/api/v1/orders";
     private final String GET_ORDER_PATH="/api/v1/orders/track";
-    private final String CANCEL_ORDER_PATH="/api/v1/orders/cancel/";
+    private final String CANCEL_ORDER_PATH="/api/v1/orders/cancel";
 
 @Step("Запрос на создание заказа с параметрами {order}")
     public ValidatableResponse create(Order order){

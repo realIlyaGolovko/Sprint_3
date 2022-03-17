@@ -34,7 +34,7 @@ public class Order {
         this.comment = comment;
         this.color = color;
     }
-    @Step("Создание нового заказа с рандомными данными за исключением цвета")
+    @Step("Создание нового заказа с рандомными данными")
     public static Order getRandomOrder(List<String> colors){
         String firstName=faker.name().firstName();
         String lastName=faker.name().lastName();
@@ -46,7 +46,5 @@ public class Order {
         String comment=faker.programmingLanguage().name();
         List<String> color=colors;
         return new Order(firstName,lastName,address,metroStation,phone,rentTime,deliveryDate,comment,color);
-
-
     }
 }
