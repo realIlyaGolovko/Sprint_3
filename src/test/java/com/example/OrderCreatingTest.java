@@ -42,6 +42,6 @@ public class OrderCreatingTest {
         List<String> actualColors=getOrderResponse.extract().jsonPath().getList("order.color");
         //Assert
         createdResponse.statusCode(SC_CREATED);
-        assertThat("Courier ID incorrect", track, is(not(0)));
+        assertThat("ID incorrect", track, is(not(0)));
         assertEquals("Not expected colors",expectedColor,actualColors);}
 }

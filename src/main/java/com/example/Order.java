@@ -45,7 +45,6 @@ public class Order {
         Date deliveryDate=faker.date().future(7, TimeUnit.DAYS);
         String comment=faker.programmingLanguage().name();
         List<String> color=colors;
-
         return new Order(firstName,lastName,address,metroStation,phone,rentTime,deliveryDate,comment,color);
 
 
